@@ -1,11 +1,14 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   build: {
+    minify: mode === 'production' ? 'esbuild' : false,
+    target: 'es6',
     lib: {
       entry: './lib/main.ts',
-      name: 'Counter',
-      fileName: 'counter',
+      name: 'YASCI18n',
+      fileName: (format) => `i18n${format !== 'umd' ? `.${format}` : ''}.js`,
+      formats: [ 'umd' ]
     },
   },
-})
+}));

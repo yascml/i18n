@@ -1,23 +1,10 @@
 {
-  "name": "i18n",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@yascml/i18n",
+  "version": "1.0.0",
   "type": "module",
-  "files": [
-    "dist",
-    "index.d.ts"
-  ],
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
-  "types": "./index.d.ts",
-  "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
-  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build",
+    "build:prod": "tsc && vite build --mode production"
   },
   "devDependencies": {
     "typescript": "~5.9.2",
