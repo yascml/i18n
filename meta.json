@@ -1,0 +1,17 @@
+{
+  "id": "yasci18n",
+  "name": "YASCML I18N",
+  "author": {
+    "name": "MisaLiu",
+    "url": "https://misaliu.top"
+  },
+  "homepageURL": "https://github.com/yascml/i18n",
+  "priority": 2000,
+  "dependencies": {
+    "yascml": "^1.0.0",
+    "yascapi": "^1.0.0"
+  },
+  "preloadScripts": [
+    "i18n.js"
+  ]
+}
