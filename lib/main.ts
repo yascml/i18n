@@ -1,9 +1,9 @@
-export function setupCounter(element: HTMLButtonElement) {
-  let counter = 0
-  const setCounter = (count: number) => {
-    counter = count
-    element.innerHTML = `count is ${counter}`
+import { initI18nData } from './init';
+
+declare global {
+  interface Window {
+    __AfterInit: (void | Promise<void>)[];
   }
-  element.addEventListener('click', () => setCounter(++counter))
-  setCounter(0)
 }
+
+window.__AfterInit.push(initI18nData());

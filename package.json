@@ -11,5 +11,8 @@
     "vite": "^7.1.5",
     "vite-plugin-cp": "^6.0.3",
     "vite-plugin-zip-pack": "^1.2.4"
+  },
+  "dependencies": {
+    "@streamparser/json": "^0.0.22"
   }
 }

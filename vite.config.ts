@@ -2,9 +2,13 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import cp from 'vite-plugin-cp';
 import zipPack from 'vite-plugin-zip-pack';
+import { id } from './meta.json';
 import { version } from './package.json';
 
 export default defineConfig(({ mode }) => ({
+  define: {
+    '__MOD_ID__': JSON.stringify(id),
+  },
   build: {
     minify: mode === 'production' ? 'esbuild' : false,
     target: 'es6',

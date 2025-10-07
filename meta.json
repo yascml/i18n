@@ -9,7 +9,7 @@
   "priority": 2000,
   "dependencies": {
     "yascml": "^1.0.0",
-    "yascapi": "^1.0.0"
+    "yaschook": "^1.0.0"
   },
   "preloadScripts": [
     "i18n.js"
