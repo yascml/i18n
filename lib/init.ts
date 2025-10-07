@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export const initI18nData = () => new Promise<void>((res, rej) => {
+export const initI18nData = () => new Promise<void>(async (res, rej) => {
   const mod = window.YASCML.api.mod.get(__MOD_ID__);
   const modZip = mod.zip;
   if (!modZip) {
@@ -56,10 +56,8 @@ export const initI18nData = () => new Promise<void>((res, rej) => {
 
   const stream = i18nFile.internalStream('string');
   stream
-    .on('data', (chunk: string) => {
-      parser.write(chunk);
-    })
-    .on('end', () => res(void 0))
+    .on('data', (chunk: string) => parser.write(chunk))
     .on('error', (e: Error) => rej(e))
+    .on('end', () => res(void 0))
     .resume();
 });

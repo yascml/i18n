@@ -5,7 +5,7 @@ import { PassageBase } from 'twine-sugarcube';
 declare global {
   interface Window {
     YASCHook: any;
-    __AfterInit: (void | Promise<void>)[];
+    __AfterInit: (() => void | Promise<void>)[];
   }
 }
 
@@ -37,4 +37,4 @@ window.YASCHook.passage.hook((c: PassageBase, next: () => void) => {
   PatchedPassagesCache.set(c.name, result);
 });
 
-window.__AfterInit.push(initI18nData());
+window.__AfterInit.push(initI18nData);
