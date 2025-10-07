@@ -46,11 +46,11 @@ export const initI18nData = () => new Promise<void>((res, rej) => {
       }
 
       patches.push({
-        start: v.pos,
-        end: v.pos + v.f.length,
-        replace: v.t,
+        position: v.pos,
+        from: v.f,
+        to: v.t,
       });
-      patches.sort((a, b) => a.start - b.start);
+      patches.sort((a, b) => a.position - b.position);
     }
   };
 

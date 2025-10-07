@@ -3,17 +3,17 @@ export type PassagePatch = {
   /**
    * Start position of the original text
    */
-  start: number,
+  position: number,
 
   /**
-   * End position of the original text
+   * The original text used for replacement
    */
-  end: number,
+  from: string,
 
   /**
    * The new text used for replacement
    */
-  replace: string,
+  to: string,
 };
 
 export type ReplaceInfo = {

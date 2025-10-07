@@ -7,12 +7,14 @@
     "build:prod": "tsc && vite build --mode production"
   },
   "devDependencies": {
+    "@types/twine-sugarcube": "^2.37.2",
     "typescript": "~5.9.2",
     "vite": "^7.1.5",
     "vite-plugin-cp": "^6.0.3",
     "vite-plugin-zip-pack": "^1.2.4"
   },
   "dependencies": {
-    "@streamparser/json": "^0.0.22"
+    "@streamparser/json": "^0.0.22",
+    "quick-lru": "^7.2.0"
   }
 }
