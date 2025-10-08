@@ -10,8 +10,8 @@ export const patchUserScript = (context: PassageBase, next: () => void) => {
   if (!ScriptPassageNameReg.test(context.name)) return next();
   if (UserScriptPatches.size === 0) return next();
   if (scriptsCount === 0) {
-    UserScriptPatches.clear();
-    return next();
+    next();
+    return UserScriptPatches.clear();
   }
 
   let result = context.text;
@@ -27,7 +27,6 @@ export const patchUserScript = (context: PassageBase, next: () => void) => {
     const endIndex = i === 0 ? result.length : fileHeads[i - 1].index;
     const block = result.slice(startIndex, endIndex);
 
-    patches.sort((a, b) => b.pos - a.pos);
     let newBlock = block;
     for (const patch of patches) {
       const index = patch.pos;

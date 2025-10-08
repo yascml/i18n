@@ -50,7 +50,7 @@ export const initI18nData = () => new Promise<void>(async (res, rej) => {
         from: v.f,
         to: v.t,
       });
-      patches.sort((a, b) => a.position - b.position);
+      patches.sort((a, b) => b.position - a.position);
     }
 
     if (parent.key === 'TypeBOutputText') {
@@ -61,7 +61,9 @@ export const initI18nData = () => new Promise<void>(async (res, rej) => {
             patches = [];
             UserScriptPatches.set(v.fileName, patches);
           }
+
           patches.push(v);
+          patches.sort((a, b) => b.pos - a.pos);
         }
       }
     }
