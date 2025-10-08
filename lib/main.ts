@@ -1,3 +1,4 @@
+import { patchUserStyle } from './patcher/style';
 import { patchUserScript } from './patcher/script';
 import { patchTweeStory } from './patcher/twee';
 import { initI18nData } from './init';
@@ -10,8 +11,9 @@ declare global {
   }
 }
 
-window.YASCHook.passage.hook(patchUserScript);
 window.YASCHook.passage.hook(patchTweeStory);
+window.YASCHook.passage.hook(patchUserStyle);
+window.YASCHook.passage.hook(patchUserScript);
 
 window.__AfterInit.push(
   initI18nData,

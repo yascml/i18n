@@ -1,5 +1,5 @@
 import { JSONParser } from '@streamparser/json';
-import { PassagePatches, UserScriptPatches } from './const';
+import { PassagePatches, UserScriptPatches, UserStylePatches } from './const';
 import { ReplaceInfo, PassagePatch } from './types';
 import { ParsedElementInfo } from '@streamparser/json/utils/types/parsedElementInfo.js';
 
@@ -60,6 +60,19 @@ export const initI18nData = () => new Promise<void>(async (res, rej) => {
           if (!patches) {
             patches = [];
             UserScriptPatches.set(v.fileName, patches);
+          }
+
+          patches.push(v);
+          patches.sort((a, b) => b.pos - a.pos);
+        }
+      }
+
+      if (v.css) {
+        if (v.fileName) {
+          let patches: ReplaceInfo[] = UserStylePatches.get(v.fileName)!;
+          if (!patches) {
+            patches = [];
+            UserStylePatches.set(v.fileName, patches);
           }
 
           patches.push(v);

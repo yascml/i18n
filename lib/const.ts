@@ -8,3 +8,5 @@ export const PatchedPassagesCache = new QuickLRU<string, string>({
 });
 
 export const UserScriptPatches = new Map<string, ReplaceInfo[]>();
+
+export const UserStylePatches = new Map<string, ReplaceInfo[]>();
