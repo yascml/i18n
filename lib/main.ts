@@ -1,5 +1,6 @@
 import { PassagePatches, PatchedPassagesCache } from './const';
-import { initI18nData, patchUserScript } from './init';
+import { patchUserScript } from './patcher/script';
+import { initI18nData } from './init';
 import { PassageBase } from 'twine-sugarcube';
 
 declare global {
@@ -10,6 +11,7 @@ declare global {
   }
 }
 
+window.YASCHook.passage.hook(patchUserScript);
 window.YASCHook.passage.hook((c: PassageBase, next: () => void) => {
   const patches = PassagePatches.get(c.name);
   if (!patches) return next();
@@ -40,6 +42,5 @@ window.YASCHook.passage.hook((c: PassageBase, next: () => void) => {
 
 window.__AfterInit.push(
   initI18nData,
-  patchUserScript,
   () => window.YASCML.api.mod.releaseFiles(__MOD_ID__)
 );
