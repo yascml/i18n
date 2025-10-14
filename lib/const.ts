@@ -4,7 +4,7 @@ import { PassagePatch, ReplaceInfo } from './types';
 export const PassagePatches = new Map<string, PassagePatch[]>();
 
 export const PatchedPassagesCache = new QuickLRU<string, string>({
-  maxSize: 20,
+  maxSize: 15,
 });
 
 export const UserScriptPatches = new Map<string, ReplaceInfo[]>();

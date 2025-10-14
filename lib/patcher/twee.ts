@@ -4,7 +4,7 @@ import { PassageBase } from 'twine-sugarcube';
 export const patchTweeStory = (c: PassageBase, next: () => void) => {
   const patches = PassagePatches.get(c.name);
   if (!patches) return next();
-  
+
   const cache = PatchedPassagesCache.get(c.name);
   if (cache) {
     c.text = cache;
